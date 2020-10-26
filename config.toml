@@ -1,0 +1,28 @@
+baseURL = "https://noematic.fr/"
+languageCode = "fr-fr"
+theme = "noematic"
+
+# navigation
+[menu]
+
+  #[[menu.header]]
+  #name = "About"
+  #URL = "#about"
+  #weight = 2
+
+
+  #[[menu.footer]]
+  #name = "About"
+  #URL = "#about"
+  #weight = 2
+
+
+[params]
+
+  sections = ["showcase", "about", "education", "experience", "client-and-work", "testimonial", "contact", "newsletter"]
+
+  [params.logo]
+    text1 = "Noematic"
+
+  [params.footer]
+      copyright = "© Noematic. Tous droits réservés."

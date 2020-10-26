@@ -1,0 +1,43 @@
+{{ if .Site.Data.homepage.showcase.enable }}
+<section class="noe-showcase">
+  <div class="noe-logo">
+    <img width="75%"
+      src="{{ .Site.Data.homepage.showcase.image.url | absURL }}"
+      alt="{{ .Site.Data.homepage.showcase.image.alt }}"
+    />
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-8 col-lg-7 col-xl-6">
+        <h1 class="display-1">
+          {{ .Site.Data.homepage.showcase.title }}
+          <br />
+          <span
+            >{{ .Site.Data.homepage.showcase.subtitle }}</span
+          >
+        </h1>
+        <p class="lead">
+          {{ .Site.Data.homepage.showcase.description | safeHTML }}
+        </p>
+      </div>
+    </div>
+    <div class="row platform-links">
+      <div class="col-12">
+        {{ range .Site.Data.homepage.showcase.socialLinks }}
+        <a href="{{ .url | absURL }}" target="_blank"
+          ><i class="bi icon-{{ .icon }}"></i
+        ></a>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+  <div class="noe-showcase__bg noe-showcase__bg--mobile">
+    <img
+      class="lozad img-responsive"
+      src="data:image/gif;base64,R0lGODlhBwACAIAAAP///wAAACH5BAEAAAEALAAAAAAHAAIAAAIDjI9YADs="
+      data-src="{{ .Site.Data.homepage.showcase.imageMobile.x | absURL }}"
+      alt="{{ .Site.Data.homepage.showcase.imageMobile.alt }}"
+    />
+  </div>
+</section>
+{{ end }}
