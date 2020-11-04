@@ -1,7 +1,7 @@
 # showcase
 showcase:
   enable: true
-  title: "Hello, Welcome at Noematic!"
+  title: "Welcome at Noematic!"
   subtitle: "The IT at your service"
   description: "We provide best cloud native practices, knowledge, sense and meaning"
 
@@ -176,25 +176,25 @@ testimonial:
 
 # contact
 contact:
-  enable: false
+  enable: true
   title: "Contact"
-  form:
-    action: "#"
-    full_name: "Full Name"
-    email: "Email Address"
-    message: "Type Your Message Here"
-  phone:
-    title: "Phone Number"
-    number: "+41 (44) 505 10 99"
-  email:
-    title: "Email"
-    email: '<a href="mailto:team@radity.com">team@radity.com</a>'
+  #form:
+  #  action: "#"
+  #  full_name: "Full Name"
+  #  email: "Email Address"
+  #  message: "Type Your Message Here"
+  #phone:
+  #  title: "Phone Number"
+  #  number: "+41 (44) 505 10 99"
+  #email:
+  #  title: "Email"
+  #  email: '<a href="mailto:team@radity.com">team@radity.com</a>'
   address:
     title: "Address"
-    address: "Radity GmbH<br />Max-Bill-Platz 5, 8050 Zürich"
-  button:
-    icon: "icon-mail-fill"
-    btnText: "Send Message"
+    address: "32 rue Chateaugontier 49100 Angers, France"
+  #button:
+  #  icon: "icon-mail-fill"
+  #  btnText: "Send Message"
 
 # newsletter
 newsletter:

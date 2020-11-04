@@ -25,4 +25,4 @@ theme = "noematic"
     text1 = "Noematic"
 
   [params.footer]
-      copyright = "© Noematic. Tous droits réservés."
+      copyright = "2020 © Noematic. All rights reserved."

@@ -1,0 +1,3 @@
+[submodule "themes/noematic"]
+	path = themes/noematic
+	url = git@github.com:noematic-fr/hugo-template
