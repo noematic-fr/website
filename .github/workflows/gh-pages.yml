@@ -20,9 +20,6 @@ jobs:
           hugo-version: '0.72.0'
           extended: true
 
-      - name: Git Submodules Init
-        uses: chris-short/github-action-git-submodules@v0.1.0
-
       - name: Build
         run: hugo --minify
 
