@@ -1,9 +1,9 @@
 # showcase
 showcase:
   enable: true
-  title: "Welcome at Noematic!"
-  subtitle: "The IT at your service"
-  description: "We provide best cloud native practices, knowledge, sense and meaning"
+  title: "Bienvenue chez Noematic !"
+  subtitle: "Le TIC à votre service"
+  description: "13 ans d'expériences variées dans l'informatique."
 
   image:
     url: "images/logo/noematic.svg"

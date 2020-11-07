@@ -19,10 +19,10 @@ theme = "noematic"
 
 [params]
 
-  sections = ["showcase", "about", "education", "experience", "client-and-work", "testimonial", "contact", "newsletter"]
+  sections = ["showcase"]
 
   [params.logo]
     text1 = "Noematic"
 
   [params.footer]
-      copyright = "2020 © Noematic. All rights reserved."
+      copyright = "2020 © Noematic. Tous droits réservés."
