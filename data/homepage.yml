@@ -2,14 +2,17 @@
 showcase:
   enable: true
   title: "Bienvenue chez Noematic !"
-  subtitle: "<a href='https://qi.noematic.fr'>Qualitatif Indé</a>"
-  description: "18 ans d'expériences"
+  subtitle: "18 ans d'expériences variée dans l'IT"
+  description: "Cliquez sur le logo Qi pour accéder au site studio indé"
 
   image:
     url: "images/logo/noematic.svg"
     alt: "Noematic"
 
   socialLinks:
+    - icon: "qi"
+      url: "https://qi.noematic.fr/"
+
     - icon: "linkedin"
       url: "https://www.linkedin.com/company/noematic/"
 
@@ -194,7 +197,7 @@ contact:
   #  email: '<a href="mailto:team@radity.com">team@radity.com</a>'
   address:
     title: "Address"
-    address: "32 rue Chateaugontier 49100 Angers, France"
+    address: "28 avenue du Maréchal Lyautey 49240 Avrillé, France"
   #button:
   #  icon: "icon-mail-fill"
   #  btnText: "Send Message"
