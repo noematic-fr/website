@@ -2,8 +2,8 @@
 showcase:
   enable: true
   title: "Bienvenue chez Noematic !"
-  subtitle: "Le TIC à votre service"
-  description: "13 ans d'expériences variées dans l'informatique."
+  subtitle: "<a href='https://qi.noematic.fr'>Qualitatif Indé</a>"
+  description: "18 ans d'expériences"
 
   image:
     url: "images/logo/noematic.svg"
@@ -14,7 +14,10 @@ showcase:
       url: "https://www.linkedin.com/company/noematic/"
 
     - icon: "github"
-      url: "https://github.com/noematic-fr"
+      url: "https://github.com/noematic-eu"
+
+    - icon: "xcom"
+      url: "https://x.com/Noematic_eu"
 
 # about
 about:
