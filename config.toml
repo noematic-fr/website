@@ -20,7 +20,7 @@ theme = "noematic"
 [params]
 
   sections = ["showcase"]
-  gcount = "noematic-fr"
+  gcount = "fr.gc"
 
   [params.logo]
     text1 = "Noematic"
