@@ -1,0 +1,47 @@
+---
+import '../styles/global.css';
+import Footer from '../components/Footer.astro';
+import { content } from '../content';
+import { ANALYTICS_ENDPOINT, LOCALE, SITE_NAME, SITE_URL } from '../site';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = content.meta.title,
+  description = content.meta.description,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, SITE_URL).href;
+---
+
+<!doctype html>
+<html lang={LOCALE}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap"
+      rel="stylesheet"
+    />
+    <script data-goatcounter={ANALYTICS_ENDPOINT} async src="https://qi.noematic.eu/count.min.js"></script>
+  </head>
+  <body>
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,83 @@
+---
+import { LOGO_SPHERE_GEOM as G } from '../site';
+
+const PATH_DARK = `M332.972,464.893c-15.027-7.736-9.975-22.078-5.318-38.555c1.807-6.397,10.902-30.565,9.213-33.014
+  c-1.598-2.316-5.262-2.916-14.131,7.725c-26.902,32.268-36.107,55.905-37.016,56.889c-0.461,0.5-1.428,1.221-4.359,2.18
+  c-4.432,1.447-5.102-0.959-5.006-2.086c0.09-1.064,7.785-10.705,15.195-42.086c6.408-27.139,1.299-30.738-21.639-27.82
+  c-3.209,0.41-6.75,1.09-10.531,2.018c-6.746,10.01-10.686,22.07-10.686,35.049c0,34.682,28.115,62.797,62.797,62.797
+  c16.879,0,32.203-6.662,43.486-17.498C346.753,469.822,339.194,468.098,332.972,464.893z`;
+
+const PATH_LIGHT = `M272.601,382.544c12.66-1.738,24.328-2.641,29.611,6.951c5.283,9.594-4.438,38.276-4.438,38.276
+  c4.031-5.838,25.326-33.887,34.811-39.469c8.514-5.01,13.861-3.814,14.252,0.639c0.391,4.469-8.432,31.566-13.299,51.168
+  c-4.344,17.502,9.5,23.689,26.334,25.115c9.002-10.867,14.414-24.818,14.414-40.034c0-34.682-28.115-62.797-62.795-62.797
+  c-19.082,0-36.176,8.516-47.693,21.951C267.017,383.527,269.999,382.902,272.601,382.544z`;
+---
+
+<div class="noe-sphere-mark">
+  <div class="noe-sphere-mark__halo noe-sphere-mark__halo--back" aria-hidden="true"></div>
+  <div class="noe-sphere-mark__halo noe-sphere-mark__halo--core" aria-hidden="true"></div>
+  <div class="noe-sphere-mark__halo noe-sphere-mark__halo--front" aria-hidden="true"></div>
+  <svg
+    class="noe-sphere-mark__svg"
+    viewBox={`${G.vbX} ${G.vbY} ${G.vbW} ${G.vbH}`}
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+  >
+    <defs>
+      <radialGradient id="noe-aqua-glass" cx="34%" cy="28%" r="72%">
+        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.55" />
+        <stop offset="28%" stop-color="#e8f2fa" stop-opacity="0.38" />
+        <stop offset="58%" stop-color="#a8b8c8" stop-opacity="0.22" />
+        <stop offset="100%" stop-color="#485560" stop-opacity="0.12" />
+      </radialGradient>
+      <linearGradient id="noe-aqua-dark" x1="35%" y1="25%" x2="70%" y2="88%">
+        <stop offset="0%" stop-color="#383838" />
+        <stop offset="100%" stop-color="#262626" />
+      </linearGradient>
+      <linearGradient id="noe-aqua-light" x1="20%" y1="10%" x2="75%" y2="90%">
+        <stop offset="0%" stop-color="#d8d8d8" />
+        <stop offset="45%" stop-color="#a8a8a8" />
+        <stop offset="100%" stop-color="#8c8c8c" />
+      </linearGradient>
+      <radialGradient id="noe-aqua-spec" cx="32%" cy="24%" r="40%">
+        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.92" />
+        <stop offset="35%" stop-color="#eef6ff" stop-opacity="0.45" />
+        <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+      </radialGradient>
+      <linearGradient id="noe-aqua-band" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#ffffff" stop-opacity="0" />
+        <stop offset="22%" stop-color="#ffffff" stop-opacity="0.65" />
+        <stop offset="50%" stop-color="#ffffff" stop-opacity="0.12" />
+        <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+      </linearGradient>
+      <clipPath id="noe-sphere-clip">
+        <ellipse cx={G.cx} cy={G.cy} rx={G.rx} ry={G.ry} />
+      </clipPath>
+    </defs>
+    <g clip-path="url(#noe-sphere-clip)" class="noe-sphere-mark__glass">
+      <ellipse cx={G.cx} cy={G.cy} rx={G.rx} ry={G.ry} fill="url(#noe-aqua-glass)" />
+      <g class="noe-sphere-mark__shine" transform={`translate(${G.cx} ${G.cy})`}>
+        <g class="noe-sphere-mark__shine-inner">
+          <ellipse cx={-G.rx * 0.33} cy={-G.ry * 0.78} rx={G.rx * 0.66} ry={G.ry * 0.6} fill="url(#noe-aqua-spec)" class="noe-sphere-mark__spec" />
+          <ellipse cx={-G.rx * 0.66} cy={-G.ry * 0.96} rx={G.rx * 0.26} ry={G.ry * 0.14} fill="#ffffff" fill-opacity="0.88" class="noe-sphere-mark__glint" />
+          <ellipse cx="0" cy={-G.ry * 0.87} rx={G.rx * 0.84} ry={G.ry * 0.23} fill="url(#noe-aqua-band)" opacity="0.55" />
+        </g>
+      </g>
+    </g>
+    <g class="noe-sphere-mark__paths">
+      <path fill="url(#noe-aqua-dark)" d={PATH_DARK} />
+      <path fill="url(#noe-aqua-light)" d={PATH_LIGHT} />
+    </g>
+    <ellipse
+      cx={G.cx}
+      cy={G.cy}
+      rx={G.rx}
+      ry={G.ry}
+      fill="none"
+      stroke="#ffffff"
+      stroke-opacity="0.15"
+      stroke-width="0.6"
+      class="noe-sphere-mark__rim"
+    />
+  </svg>
+</div>

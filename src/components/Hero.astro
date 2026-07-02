@@ -1,0 +1,19 @@
+---
+import Logo from './Logo.astro';
+import SocialLinks from './SocialLinks.astro';
+import { content } from '../content';
+
+const { hero, socialLinks } = content;
+---
+
+<section class="noe-showcase">
+  <Logo />
+  <div class="noe-hero-copy">
+    <h1 class="noe-hero-title">
+      {hero.title}
+      <span class="noe-hero-subtitle">{hero.subtitle}</span>
+    </h1>
+    <p class="noe-hero-lead">{hero.description}</p>
+    <SocialLinks links={socialLinks} />
+  </div>
+</section>

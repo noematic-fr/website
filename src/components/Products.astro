@@ -1,0 +1,29 @@
+---
+import { content } from '../content';
+
+const { products } = content;
+---
+
+<section id="products" class="noe-section noe-products">
+  <div class="noe-container">
+    <header class="noe-section-header">
+      <h2>{products.title}</h2>
+      <p class="noe-section-lead">{products.subtitle}</p>
+    </header>
+    <div class="noe-card-grid noe-card-grid--products">
+      {products.items.map((item) => (
+        <a class="noe-card noe-card--product" href={item.url} target="_blank" rel="noopener noreferrer">
+          <div class="noe-card-top">
+            <h3>{item.name}</h3>
+            <span class={`noe-badge noe-badge--${item.status}`}>{item.status}</span>
+          </div>
+          <p>{item.tagline}</p>
+          <ul class="noe-tags">
+            {item.tags.map((tag) => <li>{tag}</li>)}
+          </ul>
+          <span class="noe-card-link">{item.cta} →</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

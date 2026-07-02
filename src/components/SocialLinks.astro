@@ -1,0 +1,24 @@
+---
+import type { SocialLink } from '../content';
+
+interface Props {
+  links: SocialLink[];
+}
+
+const { links } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+
+<div class="noe-social">
+  {links.map((link) => (
+    <a href={link.url} target="_blank" rel="noopener noreferrer" aria-label={link.label}>
+      <img
+        class="noe-social-icon"
+        src={`${base}images/icons/${link.icon}.svg`}
+        alt=""
+        width="44"
+        height="44"
+      />
+    </a>
+  ))}
+</div>

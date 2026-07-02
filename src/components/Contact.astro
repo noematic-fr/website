@@ -1,0 +1,19 @@
+---
+import { content } from '../content';
+
+const { contact } = content;
+---
+
+<section id="contact">
+  <div class="noe-container">
+    <h2>{contact.title}</h2>
+    <div class="contact__info">
+      <h4>{contact.emailLabel}</h4>
+      <span>
+        <a href={`mailto:${contact.email}`}>{contact.email}</a>
+      </span>
+      <h4>{contact.addressLabel}</h4>
+      <span>{contact.address}</span>
+    </div>
+  </div>
+</section>
