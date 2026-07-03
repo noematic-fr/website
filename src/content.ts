@@ -69,6 +69,11 @@ export const content = {
       },
     ] satisfies Service[],
   },
+  newsletter: {
+    title: 'Newsletter',
+    subtitle:
+      'Actualités produits, notes d’ingénierie et coulisses du studio — une fois par mois, sans spam.',
+  },
   products: {
     title: 'Produits publiés',
     subtitle:
