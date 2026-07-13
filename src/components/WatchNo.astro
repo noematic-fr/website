@@ -1,0 +1,25 @@
+---
+/** WatchNo RUM — errors, vitals, fetch_fail. Keys are public in HTML (ingest auth). */
+const ingestUrl =
+  import.meta.env.PUBLIC_WATCHNO_INGEST_URL || 'https://api.watchnocode.noematic.eu/ingest';
+const apiKey = import.meta.env.PUBLIC_WATCHNO_API_KEY || '';
+const projectId = import.meta.env.PUBLIC_WATCHNO_PROJECT_ID || 'noematic-fr';
+const scriptSrc =
+  import.meta.env.PUBLIC_WATCHNO_SCRIPT_URL || 'https://qi.noematic.eu/watchno.min.js';
+const enabled = apiKey.length > 0;
+---
+
+{
+  enabled && (
+    <>
+      <script is:inline define:vars={{ ingestUrl, apiKey, projectId }}>
+        window.WATCHNO_CONFIG = {
+          endpoint: ingestUrl,
+          apiKey: apiKey,
+          projectId: projectId,
+        };
+      </script>
+      <script src={scriptSrc} defer />
+    </>
+  )
+}

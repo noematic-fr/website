@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import Footer from '../components/Footer.astro';
+import WatchNo from '../components/WatchNo.astro';
 import { content } from '../content';
 import { ANALYTICS_ENDPOINT, LOCALE, SITE_NAME, SITE_URL } from '../site';
 
@@ -37,6 +38,7 @@ const canonical = new URL(Astro.url.pathname, SITE_URL).href;
       rel="stylesheet"
     />
     <script data-goatcounter={ANALYTICS_ENDPOINT} async src="https://qi.noematic.eu/count.min.js"></script>
+    <WatchNo />
   </head>
   <body>
     <main>
