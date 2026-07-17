@@ -301,6 +301,11 @@ a {
   flex-shrink: 0;
 }
 
+.noe-badge--pilot {
+  background: rgba(120, 160, 255, 0.15);
+  color: #8eb0ff;
+}
+
 .noe-badge--beta {
   background: rgba(255, 180, 60, 0.15);
   color: #f0b040;

@@ -1,4 +1,4 @@
-export type ProductStatus = 'beta' | 'live' | 'studio';
+export type ProductStatus = 'pilot' | 'live' | 'studio' | 'beta';
 
 export interface SocialLink {
   icon: 'qi' | 'linkedin' | 'github' | 'xcom';
@@ -75,27 +75,42 @@ export const content = {
       'Actualités produits, notes d’ingénierie et coulisses du studio — une fois par mois, sans spam.',
   },
   products: {
-    title: 'Produits publiés',
+    title: 'Outils & produits',
     subtitle:
-      'Projets live du portfolio Noematic — testez-les, cassez-les, dites-nous ce que vous en pensez.',
+      'Petits produits pour des problèmes que je rencontre — pilotes et outils live sous notre contrôle. Statuts honnêtes, pas de fausse beta ouverte.',
+    statusLabels: {
+      pilot: 'pilote',
+      live: 'live',
+      studio: 'studio',
+      beta: 'beta',
+    } satisfies Record<ProductStatus, string>,
     items: [
       {
         name: 'Living Memoirs',
         tagline:
-          'Guidez les entretiens familiaux, structurez le récit, puis dialoguez avec la biographie — ancrée dans les propres mots de l’auteur.',
+          'Guidez les entretiens familiaux, structurez le récit, puis dialoguez avec la biographie — ancrée dans les propres mots de l’auteur. Pilote produit, accès prioritaire sur invitation.',
         url: 'https://living-memoirs.noematic.eu',
-        status: 'beta',
+        status: 'pilot',
         tags: ['SaaS', 'IA', 'RGPD'],
-        cta: 'Essayer la démo',
+        cta: 'Voir le site',
       },
       {
-        name: 'WatchNo.co',
+        name: 'WatchNoCode',
         tagline:
-          'RUM léger pour les builders no-code — erreurs JS, fetches échoués et Core Web Vitals sans la complexité Datadog.',
+          'RUM léger pour builders no-code — erreurs JS, fetches échoués et Core Web Vitals sans Datadog. Pilote gratuit ; tarifs non publics pour l’instant.',
         url: 'https://watchnocode.noematic.eu',
-        status: 'beta',
+        status: 'pilot',
         tags: ['SaaS', 'Observabilité', 'Webflow'],
-        cta: 'Voir les tarifs',
+        cta: 'Rejoindre le pilote',
+      },
+      {
+        name: 'Ciblo',
+        tagline:
+          'Marketplace inversé avec matching IA — exprimez votre besoin (services, occasion, locations) et recevez des offres pertinentes. Pilote preprod.',
+        url: 'https://ciblo.noematic.eu',
+        status: 'pilot',
+        tags: ['SaaS', 'IA', 'Marketplace'],
+        cta: 'Voir le pilote',
       },
       {
         name: 'AI RAG Agent',

@@ -2,6 +2,7 @@
 import { content } from '../content';
 
 const { products } = content;
+const labels = products.statusLabels;
 ---
 
 <section id="products" class="noe-section noe-products">
@@ -15,7 +16,7 @@ const { products } = content;
         <a class="noe-card noe-card--product" href={item.url} target="_blank" rel="noopener noreferrer">
           <div class="noe-card-top">
             <h3>{item.name}</h3>
-            <span class={`noe-badge noe-badge--${item.status}`}>{item.status}</span>
+            <span class={`noe-badge noe-badge--${item.status}`}>{labels[item.status]}</span>
           </div>
           <p>{item.tagline}</p>
           <ul class="noe-tags">
