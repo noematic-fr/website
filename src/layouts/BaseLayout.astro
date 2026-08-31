@@ -3,7 +3,7 @@ import '../styles/global.css';
 import Footer from '../components/Footer.astro';
 import WatchNo from '../components/WatchNo.astro';
 import { content } from '../content';
-import { ANALYTICS_ENDPOINT, LOCALE, SITE_NAME, SITE_URL } from '../site';
+import { ANALYTICS_ENDPOINT, LOCALE, OG_IMAGE, SITE_NAME, SITE_URL } from '../site';
 
 interface Props {
   title?: string;
@@ -15,12 +15,12 @@ interface Props {
 const {
   title = content.meta.title,
   description = content.meta.description,
-  ogImage,
+  ogImage = OG_IMAGE,
   alternate,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, SITE_URL).href;
-const ogImageAbs = ogImage ? new URL(ogImage, SITE_URL).href : undefined;
+const ogImageAbs = new URL(ogImage, SITE_URL).href;
 ---
 
 <!doctype html>
@@ -31,12 +31,20 @@ const ogImageAbs = ogImage ? new URL(ogImage, SITE_URL).href : undefined;
     <meta name="description" content={description} />
     <title>{title}</title>
     <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={SITE_NAME} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    {ogImageAbs && <meta property="og:image" content={ogImageAbs} />}
+    <meta property="og:image" content={ogImageAbs} />
+    <meta property="og:locale" content={LOCALE === 'fr' ? 'fr_FR' : 'en_US'} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageAbs} />
     {alternate && (
       <>
         <link rel="alternate" hreflang={alternate.hreflang} href={alternate.href} />

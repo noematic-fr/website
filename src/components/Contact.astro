@@ -8,11 +8,11 @@ const { contact } = content;
   <div class="noe-container">
     <h2>{contact.title}</h2>
     <div class="contact__info">
-      <h4>{contact.emailLabel}</h4>
+      <p class="contact__label">{contact.emailLabel}</p>
       <span>
         <a href={`mailto:${contact.email}`}>{contact.email}</a>
       </span>
-      <h4>{contact.addressLabel}</h4>
+      <p class="contact__label">{contact.addressLabel}</p>
       <span>{contact.address}</span>
       {contact.note && <p class="contact__note">{contact.note}</p>}
     </div>

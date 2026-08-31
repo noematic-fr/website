@@ -223,7 +223,7 @@ export const content = {
     note: 'Un mail avec le besoin suffit.',
   },
   footer: {
-    copyright: '2026 © Noematic. Tous droits réservés.',
+    rights: 'Tous droits réservés.',
   },
   socialLinks: [
     { icon: 'qi', url: 'https://qi.noematic.fr/', label: 'Qi' },
@@ -326,7 +326,7 @@ export const content = {
         },
         {
           title: 'Distant, RAG, vision — opt-in',
-          body: 'Walk SSH avec nmci, extraction de contenu + agent RAG local, tags d’images via Ollama ou SpaceXAI. Offre Studio. Rien de tout cela ne tourne tant que vous ne le demandez pas.',
+          body: 'Walk SSH avec nmci, extraction de contenu + agent RAG local, tags d’images via Ollama ou xAI. Offre Studio. Rien de tout cela ne tourne tant que vous ne le demandez pas.',
         },
       ],
     },
@@ -393,7 +393,7 @@ export const content = {
             'Tout Personal',
             'Walk distant en SSH',
             'Extraction de contenu + recherche RAG',
-            'Tags d’images IA (Ollama ou SpaceXAI)',
+            'Tags d’images IA (Ollama ou xAI)',
             'Support email',
             'Renouvellement avec les builds Studio courants',
           ],
@@ -419,7 +419,7 @@ export const content = {
         },
         {
           q: 'Faut-il internet ?',
-          a: 'Non pour le catalogue, la recherche, les doublons et les insights. Internet est optionnel pour les tags d’images SpaceXAI ou un agent RAG distant. Ollama reste local.',
+          a: 'Non pour le catalogue, la recherche, les doublons et les insights. Internet est optionnel pour les tags d’images xAI ou un agent RAG distant. Ollama reste local.',
         },
         {
           q: 'Va-t-il supprimer des fichiers tout seul ?',

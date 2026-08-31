@@ -1,5 +1,7 @@
 ---
 import { content } from '../content';
+
+const year = new Date().getFullYear();
 ---
 
-<footer>{content.footer.copyright}</footer>
+<footer>© {year} Noematic. {content.footer.rights}</footer>
