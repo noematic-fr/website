@@ -497,6 +497,33 @@ footer {
   text-align: center;
 }
 
+.noe-404 {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.noe-404-code {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--noe-aqua);
+}
+
+.noe-404 h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 500;
+}
+
+.noe-404 p {
+  margin: 0 0 1.75rem;
+  color: var(--noe-text-muted);
+}
+
 /* ── Product landing (Media Cataloger) ── */
 
 .noe-product-nav {

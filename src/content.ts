@@ -225,6 +225,12 @@ export const content = {
   footer: {
     rights: 'Tous droits réservés.',
   },
+  notFound: {
+    title: 'Page introuvable — Noematic',
+    heading: 'Page introuvable',
+    body: 'Cette adresse n’existe pas sur noematic.fr.',
+    cta: 'Retour à l’accueil',
+  },
   socialLinks: [
     { icon: 'qi', url: 'https://qi.noematic.fr/', label: 'Qi' },
     { icon: 'linkedin', url: 'https://www.linkedin.com/company/noematic/', label: 'LinkedIn' },
@@ -245,7 +251,7 @@ export const content = {
       langHref: 'https://noematic.eu/media-cataloger',
     },
     hero: {
-      kicker: 'Catalogue desktop · beta payante 0.2',
+      kicker: 'Catalogue desktop · beta 0.2',
       title: 'Sachez où vivent vos fichiers — même quand le disque est débranché.',
       lead: 'Media Cataloger indexe disques et bibliothèques sur votre machine, y compris les volumes hors ligne. Cherchez dedans, trouvez les doublons sans parier, et voyez quoi brancher, copier ou vérifier. Ce n’est pas un logiciel de sauvegarde.',
       status: 'beta',
@@ -342,7 +348,7 @@ export const content = {
     pricing: {
       title: 'Licences, envoyées par email',
       subtitle:
-        'Plus de téléchargement public des vieux builds Qi 0.0.1. La 0.2 est une beta payante : nous envoyons un build macOS, Windows ou Linux et une clé signée après votre choix de formule.',
+        'Plus de téléchargement public des vieux builds Qi 0.0.1. La 0.2 est en beta : Hobby est gratuit (1 volume) ; Personal et Studio sont payants. Nous envoyons un build macOS, Windows ou Linux — et une clé pour les formules payantes.',
       note: 'Paiement sur facture (SEPA ou carte, convenu par email). Une licence Personal est pour vous, sur vos machines. Studio couvre un opérateur plus distant / RAG / vision. Prix en euros, HT le cas échéant.',
       plans: [
         {

@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { content } from '../content';
+
+const n = content.notFound;
+---
+
+<BaseLayout title={n.title} description={n.body}>
+  <section class="noe-404">
+    <div class="noe-container">
+      <p class="noe-404-code">404</p>
+      <h1>{n.heading}</h1>
+      <p>{n.body}</p>
+      <a class="noe-btn noe-btn--primary" href="/">{n.cta}</a>
+    </div>
+  </section>
+</BaseLayout>
