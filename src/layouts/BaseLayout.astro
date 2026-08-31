@@ -8,14 +8,19 @@ import { ANALYTICS_ENDPOINT, LOCALE, SITE_NAME, SITE_URL } from '../site';
 interface Props {
   title?: string;
   description?: string;
+  ogImage?: string;
+  alternate?: { hreflang: string; href: string };
 }
 
 const {
   title = content.meta.title,
   description = content.meta.description,
+  ogImage,
+  alternate,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, SITE_URL).href;
+const ogImageAbs = ogImage ? new URL(ogImage, SITE_URL).href : undefined;
 ---
 
 <!doctype html>
@@ -31,6 +36,13 @@ const canonical = new URL(Astro.url.pathname, SITE_URL).href;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
+    {ogImageAbs && <meta property="og:image" content={ogImageAbs} />}
+    {alternate && (
+      <>
+        <link rel="alternate" hreflang={alternate.hreflang} href={alternate.href} />
+        <link rel="alternate" hreflang={LOCALE} href={canonical} />
+      </>
+    )}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

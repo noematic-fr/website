@@ -14,6 +14,7 @@ const { contact } = content;
       </span>
       <h4>{contact.addressLabel}</h4>
       <span>{contact.address}</span>
+      {contact.note && <p class="contact__note">{contact.note}</p>}
     </div>
   </div>
 </section>

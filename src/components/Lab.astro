@@ -1,0 +1,15 @@
+---
+import { content } from '../content';
+
+const { lab } = content;
+---
+
+<section id="lab" class="noe-section">
+  <div class="noe-container">
+    <a class="noe-card noe-card--product noe-lab" href={lab.url} target="_blank" rel="noopener noreferrer">
+      <h2>{lab.title}</h2>
+      <p>{lab.subtitle}</p>
+      <span class="noe-card-link">{lab.cta} →</span>
+    </a>
+  </div>
+</section>

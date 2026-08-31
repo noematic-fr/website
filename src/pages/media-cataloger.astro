@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import MediaCatalogerPage from '../components/MediaCatalogerPage.astro';
+import { content } from '../content';
+---
+
+<BaseLayout
+  title={content.mediaCataloger.meta.title}
+  description={content.mediaCataloger.meta.description}
+  ogImage="/images/products/media-cataloger-hero.jpg"
+  alternate={{ hreflang: 'en', href: 'https://noematic.eu/media-cataloger' }}
+>
+  <MediaCatalogerPage />
+</BaseLayout>

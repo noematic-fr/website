@@ -1,0 +1,34 @@
+---
+import { content } from '../content';
+
+const { availability } = content;
+---
+
+<section id="availability" class="noe-section">
+  <div class="noe-container">
+    <header class="noe-section-header">
+      <h2>{availability.title}</h2>
+      <p class="noe-section-lead">{availability.subtitle}</p>
+    </header>
+    <div class="noe-card-grid noe-card-grid--services">
+      {availability.items.map((item) => {
+        const inner = (
+          <>
+            <h3>{item.title}</h3>
+            <p>{item.body}</p>
+            {item.cta && <span class="noe-card-link">{item.cta} →</span>}
+          </>
+        );
+        return item.href ? (
+          <a class="noe-card noe-card--product" href={item.href}>
+            {inner}
+          </a>
+        ) : (
+          <article class="noe-card noe-card--service">
+            {inner}
+          </article>
+        );
+      })}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,184 @@
+---
+import { content } from '../content';
+
+const p = content.mediaCataloger;
+---
+
+<nav class="noe-product-nav" aria-label="Produit">
+  <div class="noe-container noe-product-nav-inner">
+    <a href="/" class="noe-product-nav-brand">{p.nav.studio}</a>
+    <span class="noe-product-nav-sep" aria-hidden="true">/</span>
+    <span class="noe-product-nav-current">{p.nav.product}</span>
+    <a class="noe-product-nav-lang" href={p.nav.langHref} hreflang={p.nav.langCode} lang={p.nav.langCode}>
+      {p.nav.langLabel}
+    </a>
+  </div>
+</nav>
+
+<section class="noe-product-hero">
+  <div class="noe-container noe-product-hero-grid">
+    <div class="noe-product-hero-copy">
+      <p class="noe-product-kicker">{p.hero.kicker}</p>
+      <h1 class="noe-product-title">{p.hero.title}</h1>
+      <p class="noe-product-lead">{p.hero.lead}</p>
+      <div class="noe-product-meta">
+        <img
+          class="noe-product-icon"
+          src="/images/products/media-cataloger-icon.png"
+          alt=""
+          width="64"
+          height="64"
+        />
+        <span class="noe-badge noe-badge--beta">{p.hero.status}</span>
+        <span class="noe-product-version">{p.hero.version}</span>
+      </div>
+      <div class="noe-product-ctas">
+        <a class="noe-btn noe-btn--primary" href={p.hero.primaryCta.href}>{p.hero.primaryCta.label}</a>
+        <a class="noe-btn noe-btn--ghost" href={p.hero.secondaryCta.href}>{p.hero.secondaryCta.label}</a>
+      </div>
+    </div>
+    <figure class="noe-product-hero-visual">
+      <img
+        src="/images/products/media-cataloger-hero.jpg"
+        alt={p.hero.imageAlt}
+        width="1600"
+        height="900"
+      />
+    </figure>
+  </div>
+</section>
+
+<section class="noe-section noe-product-problem">
+  <div class="noe-container">
+    <header class="noe-section-header">
+      <h2>{p.problem.title}</h2>
+    </header>
+    <div class="noe-card-grid noe-card-grid--services">
+      {p.problem.items.map((item) => (
+        <article class="noe-card">
+          <h3>{item.title}</h3>
+          <p>{item.body}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section id="how" class="noe-section noe-product-steps">
+  <div class="noe-container">
+    <header class="noe-section-header">
+      <h2>{p.steps.title}</h2>
+      <p class="noe-section-lead">{p.steps.subtitle}</p>
+    </header>
+    <ol class="noe-step-list">
+      {p.steps.items.map((item) => (
+        <li class="noe-card noe-step">
+          <span class="noe-step-n">{item.n}</span>
+          <div>
+            <h3>{item.title}</h3>
+            <p>{item.body}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<section class="noe-section">
+  <div class="noe-container">
+    <header class="noe-section-header">
+      <h2>{p.features.title}</h2>
+      <p class="noe-section-lead">{p.features.subtitle}</p>
+    </header>
+    <div class="noe-card-grid noe-card-grid--products">
+      {p.features.items.map((item) => (
+        <article class="noe-card">
+          <h3>{item.title}</h3>
+          <p>{item.body}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="noe-section noe-product-audience">
+  <div class="noe-container">
+    <header class="noe-section-header">
+      <h2>{p.audience.title}</h2>
+    </header>
+    <ul class="noe-audience">
+      {p.audience.items.map((item) => (
+        <li>{item}</li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<section id="pricing" class="noe-section noe-product-pricing">
+  <div class="noe-container">
+    <header class="noe-section-header">
+      <h2>{p.pricing.title}</h2>
+      <p class="noe-section-lead">{p.pricing.subtitle}</p>
+    </header>
+    <div class="noe-pricing-grid">
+      {p.pricing.plans.map((plan) => (
+        <article class:list={['noe-card', 'noe-plan', plan.featured && 'noe-plan--featured']}>
+          <h3>{plan.name}</h3>
+          <p class="noe-plan-price">
+            <span>{plan.price}</span>
+            <small>{plan.period}</small>
+          </p>
+          <p>{plan.blurb}</p>
+          <ul class="noe-plan-includes">
+            {plan.includes.map((line) => (
+              <li>{line}</li>
+            ))}
+          </ul>
+          <a class:list={['noe-btn', plan.featured ? 'noe-btn--primary' : 'noe-btn--ghost']} href={plan.cta.href}>
+            {plan.cta.label}
+          </a>
+        </article>
+      ))}
+    </div>
+    <p class="noe-pricing-note">{p.pricing.note}</p>
+  </div>
+</section>
+
+<section class="noe-section">
+  <div class="noe-container">
+    <header class="noe-section-header">
+      <h2>{p.honesty.title}</h2>
+    </header>
+    <ul class="noe-honesty">
+      {p.honesty.items.map((item) => (
+        <li>{item}</li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<section class="noe-section noe-product-faq">
+  <div class="noe-container noe-faq">
+    <header class="noe-section-header">
+      <h2>{p.faq.title}</h2>
+    </header>
+    {p.faq.items.map((item) => (
+      <details class="noe-faq-item">
+        <summary>{item.q}</summary>
+        <p>{item.a}</p>
+      </details>
+    ))}
+  </div>
+</section>
+
+<section class="noe-section noe-product-close">
+  <div class="noe-container">
+    <header class="noe-section-header">
+      <h2>{p.close.title}</h2>
+      <p class="noe-section-lead">{p.close.body}</p>
+    </header>
+    <p class="noe-product-close-cta">
+      <a class="noe-btn noe-btn--primary" href={p.close.cta.href}>{p.close.cta.label}</a>
+    </p>
+  </div>
+</section>
