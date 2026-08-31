@@ -7,9 +7,10 @@ import Proof from '../components/Proof.astro';
 import Lab from '../components/Lab.astro';
 import Newsletter from '../components/Newsletter.astro';
 import Contact from '../components/Contact.astro';
+import { homeJsonLd } from '../seo';
 ---
 
-<BaseLayout alternate={{ hreflang: 'en', href: 'https://noematic.eu/' }}>
+<BaseLayout alternate={{ hreflang: 'en', href: 'https://noematic.eu/' }} jsonLd={homeJsonLd()}>
   <Hero />
   <Availability />
   <Services />

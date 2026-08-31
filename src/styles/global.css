@@ -11,7 +11,7 @@
   --noe-grey-core: #8a9098;
   --noe-grey-glow: rgba(180, 190, 200, 0.45);
   --noe-radius: 16px;
-  --noe-font: "DM Sans", system-ui, -apple-system, sans-serif;
+  --noe-font: "DM Sans Variable", "DM Sans", system-ui, -apple-system, sans-serif;
 }
 
 *,

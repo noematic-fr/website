@@ -1,4 +1,6 @@
 ---
+import '@fontsource-variable/dm-sans';
+import '@fontsource-variable/dm-sans/wght-italic.css';
 import '../styles/global.css';
 import Footer from '../components/Footer.astro';
 import WatchNo from '../components/WatchNo.astro';
@@ -10,6 +12,8 @@ interface Props {
   description?: string;
   ogImage?: string;
   alternate?: { hreflang: string; href: string };
+  jsonLd?: Record<string, unknown>;
+  noindex?: boolean;
 }
 
 const {
@@ -17,10 +21,18 @@ const {
   description = content.meta.description,
   ogImage = OG_IMAGE,
   alternate,
+  jsonLd,
+  noindex = false,
 } = Astro.props;
 
-const canonical = new URL(Astro.url.pathname, SITE_URL).href;
+const path = Astro.url.pathname;
+const canonicalPath = path.includes('404') ? path : path.endsWith('/') ? path : `${path}/`;
+const canonical = new URL(canonicalPath, SITE_URL).href;
 const ogImageAbs = new URL(ogImage, SITE_URL).href;
+const ogLocale = LOCALE === 'fr' ? 'fr_FR' : 'en_US';
+const ogLocaleAlt = LOCALE === 'fr' ? 'en_US' : 'fr_FR';
+const xDefault = LOCALE === 'en' ? canonical : alternate?.href;
+const jsonLdRaw = jsonLd ? JSON.stringify(jsonLd) : null;
 ---
 
 <!doctype html>
@@ -29,8 +41,9 @@ const ogImageAbs = new URL(ogImage, SITE_URL).href;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <title>{title}</title>
-    <link rel="canonical" href={canonical} />
+    {!noindex && <link rel="canonical" href={canonical} />}
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
@@ -41,23 +54,20 @@ const ogImageAbs = new URL(ogImage, SITE_URL).href;
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImageAbs} />
-    <meta property="og:locale" content={LOCALE === 'fr' ? 'fr_FR' : 'en_US'} />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:locale:alternate" content={ogLocaleAlt} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageAbs} />
     {alternate && (
       <>
-        <link rel="alternate" hreflang={alternate.hreflang} href={alternate.href} />
         <link rel="alternate" hreflang={LOCALE} href={canonical} />
+        <link rel="alternate" hreflang={alternate.hreflang} href={alternate.href} />
+        {xDefault && <link rel="alternate" hreflang="x-default" href={xDefault} />}
       </>
     )}
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap"
-      rel="stylesheet"
-    />
+    {jsonLdRaw && <script type="application/ld+json" set:html={jsonLdRaw} />}
     <script data-goatcounter={ANALYTICS_ENDPOINT} async src="https://qi.noematic.eu/count.min.js"></script>
     <WatchNo />
   </head>
