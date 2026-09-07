@@ -12,8 +12,8 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.7.3",
+    "@astrojs/sitemap": "^3.7.4",
     "@fontsource-variable/dm-sans": "^5.3.0",
-    "astro": "^6.4.7"
+    "astro": "^7.3.1"
   }
 }
