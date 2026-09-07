@@ -4,4 +4,8 @@ import { content } from '../content';
 const year = new Date().getFullYear();
 ---
 
-<footer>© {year} Noematic. {content.footer.rights}</footer>
+<footer>
+  © {year} Noematic. {content.footer.rights}
+  {' · '}
+  <a href={content.footer.legalHref}>{content.footer.legal}</a>
+</footer>

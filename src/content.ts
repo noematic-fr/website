@@ -98,11 +98,11 @@ export const content = {
   meta: {
     title: 'Noematic — Missions backend Go, temps partagé',
     description:
-      'Ingénieur indépendant à Avrillé : backend Go, Kubernetes, observabilité. 3–4 j/sem., Angers ou remote France, déplacement ponctuel.',
+      'Ingénieur indépendant à Avrillé : backend Go, Kubernetes, observabilité. Temps partagé, Angers ou remote France, déplacement ponctuel.',
   },
   hero: {
     title: 'Ingénieur indépendant',
-    subtitle: 'Backend Go & platform · 3–4 j/sem. · Angers ou remote',
+    subtitle: 'Backend Go & platform · temps partagé · Angers ou remote',
     description:
       'Missions temps partagé : services Go en production, Kubernetes, observabilité. Le reste du calendrier, j’enseigne et je construis mes outils — ils sont sur Qi.',
   },
@@ -111,8 +111,8 @@ export const content = {
     subtitle: 'Temps partagé assumé — pas un CDI déguisé.',
     items: [
       {
-        title: '3–4 jours / semaine',
-        body: 'Intervenant ESPL / My Digital School (SysML, embarqué, logiciel) : d’où le rythme. Le reste du temps = mes projets.',
+        title: 'Temps partagé',
+        body: 'Intervenant ESPL / My Digital School (SysML, embarqué, logiciel) et mes propres projets. Le partage n’est pas équitable — ni dans la semaine, ni dans l’année.',
       },
       {
         title: 'Angers ou remote',
@@ -224,6 +224,8 @@ export const content = {
   },
   footer: {
     rights: 'Tous droits réservés.',
+    legal: 'Mentions légales',
+    legalHref: '/legal/',
   },
   notFound: {
     title: 'Page introuvable — Noematic',
