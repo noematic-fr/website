@@ -350,7 +350,7 @@ export const content = {
     pricing: {
       title: 'Licences, envoyées par email',
       subtitle:
-        'Plus de téléchargement public des vieux builds Qi 0.0.1. La 0.2 est en beta : Hobby est gratuit (1 volume) ; Personal et Studio sont payants. Nous envoyons un build macOS, Windows ou Linux — et une clé pour les formules payantes.',
+        'Les builds publics 0.0.1 restent sur Qi jusqu’à un avertissement avant remplacement. La 0.2 est en beta : Hobby est gratuit (1 volume) ; Personal et Studio sont payants. Nous envoyons un build macOS, Windows ou Linux — et une clé pour les formules payantes.',
       note: 'Paiement sur facture (SEPA ou carte, convenu par email). Une licence Personal est pour vous, sur vos machines. Studio couvre un opérateur plus distant / RAG / vision. Prix en euros, HT le cas échéant.',
       plans: [
         {
@@ -435,7 +435,7 @@ export const content = {
         },
         {
           q: 'Comment obtenir l’app ?',
-          a: 'Écrivez à contact@noematic.eu avec la formule (Hobby, Personal, Studio), votre nom et votre OS. Nous envoyons un build et, pour les formules payantes, une clé. Les zips 0.0.1 sur Qi sont retirés.',
+          a: 'Écrivez à contact@noematic.eu avec la formule (Hobby, Personal, Studio), votre nom et votre OS. Nous envoyons un build et, pour les formules payantes, une clé. Les zips publics 0.0.1 restent sur Qi.',
         },
         {
           q: 'C’est un NeoFinder ?',
