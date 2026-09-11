@@ -241,21 +241,21 @@ export const content = {
   ] satisfies SocialLink[],
   mediaCataloger: {
     meta: {
-      title: 'Media Cataloger — indexer disques et bibliothèques | Noematic',
+      title: 'DiskShelf — indexer disques et bibliothèques | Noematic',
       description:
-        'Catalogue local de disques et bibliothèques, y compris hors ligne. Retrouvez fichiers et doublons, voyez quoi protéger, restez sur votre machine. Beta payante 0.2 pour macOS, Windows et Linux.',
+        'DiskShelf (ex-Media Cataloger) : catalogue local de disques, y compris hors ligne. Licences déjà envoyées (beta 0.2) valables. macOS (Swift + nmcui), Windows et Linux (Go).',
     },
     nav: {
       studio: 'Noematic',
-      product: 'Media Cataloger',
+      product: 'DiskShelf',
       langLabel: 'EN',
       langCode: 'en',
       langHref: 'https://noematic.eu/media-cataloger',
     },
     hero: {
-      kicker: 'Catalogue desktop · beta 0.2',
+      kicker: 'DiskShelf · ex-Media Cataloger · beta 0.2',
       title: 'Sachez où vivent vos fichiers — même quand le disque est débranché.',
-      lead: 'Media Cataloger indexe disques et bibliothèques sur votre machine, y compris les volumes hors ligne. Cherchez dedans, trouvez les doublons sans parier, et voyez quoi brancher, copier ou vérifier. Ce n’est pas un logiciel de sauvegarde.',
+      lead: 'DiskShelf (ex-Media Cataloger) indexe vos disques sur une étagère locale, y compris hors ligne. Cherchez, trouvez les doublons sans parier, voyez quoi brancher. Pas un DAM, pas iTunes, pas un logiciel de sauvegarde. Toute licence déjà envoyée (beta 0.2 par email) reste valable.',
       status: 'beta',
       version: '0.2 · macOS · Windows · Linux · FR/EN',
       imageAlt:
@@ -350,7 +350,7 @@ export const content = {
     pricing: {
       title: 'Licences, envoyées par email',
       subtitle:
-        'Les builds publics 0.0.1 restent sur Qi jusqu’à un avertissement avant remplacement. La 0.2 est en beta : Hobby est gratuit (1 volume) ; Personal et Studio sont payants. Nous envoyons un build macOS, Windows ou Linux — et une clé pour les formules payantes.',
+        'Les builds publics 0.0.1 restent sur Qi (fiche Media Cataloger) jusqu’à un zip DiskShelf. La 0.2 est en beta : Hobby est gratuit (1 volume) ; Personal et Studio sont payants. Nous envoyons un build macOS (Swift + nmcui), Windows ou Linux (Go) — et une clé pour les formules payantes. Les licences déjà envoyées sous le nom Media Cataloger restent valables.',
       note: 'Paiement sur facture (SEPA ou carte, convenu par email). Une licence Personal est pour vous, sur vos machines. Studio couvre un opérateur plus distant / RAG / vision. Prix en euros, HT le cas échéant.',
       plans: [
         {
@@ -360,7 +360,7 @@ export const content = {
           blurb: 'Prouvez le catalogue sur un volume avant de payer.',
           cta: {
             label: 'Demander Hobby',
-            href: 'mailto:contact@noematic.eu?subject=Media%20Cataloger%20%E2%80%94%20Hobby',
+            href: 'mailto:contact@noematic.eu?subject=DiskShelf%20(Media%20Cataloger)%20%E2%80%94%20Hobby',
           },
           includes: [
             '1 volume local',
@@ -377,7 +377,7 @@ export const content = {
           featured: true,
           cta: {
             label: 'Demander Personal',
-            href: 'mailto:contact@noematic.eu?subject=Media%20Cataloger%20%E2%80%94%20Licence%20Personal',
+            href: 'mailto:contact@noematic.eu?subject=DiskShelf%20(Media%20Cataloger)%20%E2%80%94%20Licence%20Personal',
           },
           includes: [
             'Volumes locaux illimités',
@@ -395,7 +395,7 @@ export const content = {
           blurb: 'Hôtes distants, recherche dans le contenu, tags d’images pour une archive de travail.',
           cta: {
             label: 'Demander Studio',
-            href: 'mailto:contact@noematic.eu?subject=Media%20Cataloger%20%E2%80%94%20Licence%20Studio',
+            href: 'mailto:contact@noematic.eu?subject=DiskShelf%20(Media%20Cataloger)%20%E2%80%94%20Licence%20Studio',
           },
           includes: [
             'Tout Personal',
@@ -414,16 +414,24 @@ export const content = {
         'Le catalogue reste sur votre ordinateur. Rien n’est envoyé ailleurs sauf vision cloud ou agent RAG que vous lancez vous-même.',
         'Ce n’est pas Time Machine, rsync, ni une appliance de sauvegarde. Les insights de couverture supposent que vous copiez, puis que vous re-scannez.',
         'La 0.2 est une beta : UX simple, conseiller, RAG, distant et nettoyage prudent sont dans le produit. La fusion sur la branche publique et les builds magasin avancent encore — la livraison se fait par email, pas par un store.',
-        'iOS et Android ne font pas partie de cette offre. macOS est une app desktop (Fyne, plus un shell Swift natif). Windows et Linux sont Fyne.',
-        'Une clé de licence existe dans l’app (À propos → Saisir la licence). Le verrouillage Hobby / Personal / Studio se durcit ; nous honorons la formule achetée.',
+        'iOS et Android ne font pas partie de cette offre. macOS a deux apps : Swift + nmcd (native) et nmcui (Go / Fyne). Windows et Linux sont le build Go. Une licence ouvre les trois.',
+        'Une clé de licence existe dans l’app (À propos → Saisir la licence). Le même fichier ouvre DiskShelf. Le verrouillage Hobby / Personal / Studio se durcit ; nous honorons la formule achetée, y compris les clés déjà envoyées par email.',
       ],
     },
     faq: {
       title: 'Questions',
       items: [
         {
+          q: 'Media Cataloger ou DiskShelf ?',
+          a: 'Un produit. DiskShelf est le nom. Media Cataloger reste la fiche des zips publics 0.0.1 sur Qi. Vous n’achetez pas deux apps.',
+        },
+        {
+          q: 'J’ai déjà une licence Media Cataloger (beta 0.2 par email) ?',
+          a: 'Elle reste valable. Toute demande et toute licence déjà envoyée ouvrent DiskShelf — Mac Swift, nmcui, et le build Go Windows / Linux. Un acheteur de mars n’est pas hors jeu.',
+        },
+        {
           q: 'Est-ce open source ?',
-          a: 'Non. Media Cataloger est une app desktop propriétaire de Noematic. Des outils connexes du studio, comme l’agent RAG, ont leurs propres sites et licences.',
+          a: 'Non. DiskShelf est une app desktop propriétaire de Noematic. Des outils connexes du studio, comme l’agent RAG, ont leurs propres sites et licences.',
         },
         {
           q: 'Faut-il internet ?',
@@ -435,7 +443,7 @@ export const content = {
         },
         {
           q: 'Comment obtenir l’app ?',
-          a: 'Écrivez à contact@noematic.eu avec la formule (Hobby, Personal, Studio), votre nom et votre OS. Nous envoyons un build et, pour les formules payantes, une clé. Les zips publics 0.0.1 restent sur Qi.',
+          a: 'Écrivez à contact@noematic.eu avec la formule (Hobby, Personal, Studio), votre nom et votre OS. Nous envoyons un build et, pour les formules payantes, une clé. Les zips publics 0.0.1 restent sur Qi (Media Cataloger) jusqu’à un zip DiskShelf.',
         },
         {
           q: 'C’est un NeoFinder ?',
@@ -448,7 +456,7 @@ export const content = {
       body: 'Hobby suffit pour scanner un volume et le chercher hors ligne. Personal est le produit. Studio est pour les hôtes distants et le contenu que vous interrogez vraiment.',
       cta: {
         label: 'Écrire à Noematic',
-        href: 'mailto:contact@noematic.eu?subject=Media%20Cataloger%20licence',
+        href: 'mailto:contact@noematic.eu?subject=DiskShelf%20(Media%20Cataloger)%20licence',
       },
     },
   } satisfies MediaCatalogerPage,
