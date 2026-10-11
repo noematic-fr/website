@@ -1,33 +1,22 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-
-const FR = 'https://noematic.fr';
-const EN = 'https://noematic.eu';
+import { FR_ORIGIN, sitemapLinks } from './src/i18n.ts';
 
 /** @param {{ url: string }} item */
 function serialize(item) {
-  const path = new URL(item.url).pathname;
-  const home = path === '/' || path === '';
-  return {
-    url: item.url,
-    lastmod: new Date().toISOString(),
-    changefreq: home ? 'weekly' : 'monthly',
-    priority: home ? 1 : 0.8,
-    links: [
-      { lang: 'fr', url: `${FR}${path}` },
-      { lang: 'en', url: `${EN}${path}` },
-      { lang: 'x-default', url: `${EN}${path}` },
-    ],
-  };
+  const links = sitemapLinks(new URL(item.url).pathname);
+  // No lastmod: a build timestamp would mark every URL as changed on each deploy.
+  // Google ignores changefreq and priority.
+  return links.length > 0 ? { url: item.url, links } : { url: item.url };
 }
 
 export default defineConfig({
-  site: FR,
+  site: FR_ORIGIN,
   output: 'static',
   integrations: [
     sitemap({
       serialize,
-      filter: (page) => !page.includes('/404'),
+      filter: (page) => !page.includes('/404') && !page.includes('/media-cataloger'),
     }),
   ],
 });

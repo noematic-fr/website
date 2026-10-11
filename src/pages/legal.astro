@@ -1,18 +1,24 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { alternateUrl, LANG_SWITCH } from '../i18n';
+
+const langHref = alternateUrl('/legal/');
 ---
 
 <BaseLayout
   title="Mentions légales — Noematic"
   description="Mentions légales, éditeur, hébergement, nom de domaine et confidentialité du site noematic.fr."
-  alternate={{ hreflang: 'en', href: 'https://noematic.eu/legal/' }}
 >
   <nav class="noe-product-nav" aria-label="Mentions légales">
     <div class="noe-container noe-product-nav-inner">
       <a href="/" class="noe-product-nav-brand">Noematic</a>
       <span class="noe-product-nav-sep" aria-hidden="true">/</span>
       <span class="noe-product-nav-current">Mentions légales</span>
-      <a class="noe-product-nav-lang" href="https://noematic.eu/legal/" hreflang="en" lang="en">EN</a>
+      {langHref && (
+        <a class="noe-product-nav-lang" href={langHref} hreflang={LANG_SWITCH.code} lang={LANG_SWITCH.code}>
+          {LANG_SWITCH.label}
+        </a>
+      )}
     </div>
   </nav>
 

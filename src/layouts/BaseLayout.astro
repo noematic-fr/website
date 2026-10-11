@@ -5,13 +5,13 @@ import '../styles/global.css';
 import Footer from '../components/Footer.astro';
 import WatchNo from '../components/WatchNo.astro';
 import { content } from '../content';
+import { alternateUrl, canonicalPath, LANG_SWITCH } from '../i18n';
 import { ANALYTICS_ENDPOINT, LOCALE, OG_IMAGE, SITE_NAME, SITE_URL } from '../site';
 
 interface Props {
   title?: string;
   description?: string;
   ogImage?: string;
-  alternate?: { hreflang: string; href: string };
   jsonLd?: Record<string, unknown>;
   noindex?: boolean;
 }
@@ -20,18 +20,17 @@ const {
   title = content.meta.title,
   description = content.meta.description,
   ogImage = OG_IMAGE,
-  alternate,
   jsonLd,
   noindex = false,
 } = Astro.props;
 
-const path = Astro.url.pathname;
-const canonicalPath = path.includes('404') ? path : path.endsWith('/') ? path : `${path}/`;
-const canonical = new URL(canonicalPath, SITE_URL).href;
+const path = canonicalPath(Astro.url.pathname);
+const canonical = new URL(path, SITE_URL).href;
 const ogImageAbs = new URL(ogImage, SITE_URL).href;
 const ogLocale = LOCALE === 'fr' ? 'fr_FR' : 'en_US';
 const ogLocaleAlt = LOCALE === 'fr' ? 'en_US' : 'fr_FR';
-const xDefault = LOCALE === 'en' ? canonical : alternate?.href;
+const alternateHref = noindex ? null : alternateUrl(path);
+const xDefault = alternateHref ? (LOCALE === 'en' ? canonical : alternateHref) : null;
 const jsonLdRaw = jsonLd ? JSON.stringify(jsonLd) : null;
 ---
 
@@ -55,16 +54,16 @@ const jsonLdRaw = jsonLd ? JSON.stringify(jsonLd) : null;
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImageAbs} />
     <meta property="og:locale" content={ogLocale} />
-    <meta property="og:locale:alternate" content={ogLocaleAlt} />
+    {alternateHref && <meta property="og:locale:alternate" content={ogLocaleAlt} />}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageAbs} />
-    {alternate && (
+    {alternateHref && xDefault && (
       <>
         <link rel="alternate" hreflang={LOCALE} href={canonical} />
-        <link rel="alternate" hreflang={alternate.hreflang} href={alternate.href} />
-        {xDefault && <link rel="alternate" hreflang="x-default" href={xDefault} />}
+        <link rel="alternate" hreflang={LANG_SWITCH.code} href={alternateHref} />
+        <link rel="alternate" hreflang="x-default" href={xDefault} />
       </>
     )}
     {jsonLdRaw && <script type="application/ld+json" set:html={jsonLdRaw} />}

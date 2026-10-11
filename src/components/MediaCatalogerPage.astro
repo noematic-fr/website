@@ -1,7 +1,9 @@
 ---
 import { content } from '../content';
+import { alternateUrl, LANG_SWITCH } from '../i18n';
 
 const p = content.mediaCataloger;
+const langHref = alternateUrl('/media-cataloger/');
 ---
 
 <nav class="noe-product-nav" aria-label="Produit">
@@ -9,9 +11,11 @@ const p = content.mediaCataloger;
     <a href="/" class="noe-product-nav-brand">{p.nav.studio}</a>
     <span class="noe-product-nav-sep" aria-hidden="true">/</span>
     <span class="noe-product-nav-current">{p.nav.product}</span>
-    <a class="noe-product-nav-lang" href={p.nav.langHref} hreflang={p.nav.langCode} lang={p.nav.langCode}>
-      {p.nav.langLabel}
-    </a>
+    {langHref && (
+      <a class="noe-product-nav-lang" href={langHref} hreflang={LANG_SWITCH.code} lang={LANG_SWITCH.code}>
+        {LANG_SWITCH.label}
+      </a>
+    )}
   </div>
 </nav>
 
