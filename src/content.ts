@@ -93,15 +93,15 @@ export interface MediaCatalogerPage {
 
 export const content = {
   meta: {
-    title: 'Noematic — Missions backend Go, temps partagé',
+    title: 'Noematic — Études et développement de pipelines',
     description:
-      'Ingénieur indépendant à Avrillé : backend Go, Kubernetes, observabilité. Temps partagé, Angers ou remote France, déplacement ponctuel.',
+      'Ingénieur d’études et développement à Avrillé. Pipelines sur Linux, en Go : modèle, services, tests, mise en production, supervision. Temps partagé, Angers ou remote France.',
   },
   hero: {
-    title: 'Ingénieur indépendant',
-    subtitle: 'Backend Go & platform · temps partagé · Angers ou remote',
+    title: 'Études et développement',
+    subtitle: 'Pipelines sur Linux · Go · Angers ou remote',
     description:
-      'Missions temps partagé : services Go en production, Kubernetes, observabilité. Le reste du calendrier, j’enseigne et je construis mes outils — ils sont sur Qi.',
+      'J’étudie un flux d’événements, je le développe en Go sur Linux, je le teste et je le mets en production. La supervision et la documentation ferment le travail. Le reste du calendrier, j’enseigne et je construis mes outils — ils sont sur Qi.',
   },
   availability: {
     title: 'Comment je travaille',
@@ -109,7 +109,7 @@ export const content = {
     items: [
       {
         title: 'Temps partagé',
-        body: 'Intervenant ESPL / My Digital School (SysML, embarqué, logiciel) et mes propres projets. Le partage n’est pas équitable — ni dans la semaine, ni dans l’année.',
+        body: 'Intervenant ESPL / My Digital School (SysML, embarqué, logiciel) et mes propres projets. Le partage n’est pas équitable — ni dans la semaine, ni dans l’année. Valable jusqu’en juin 2027.',
       },
       {
         title: 'Angers ou remote',
@@ -126,35 +126,35 @@ export const content = {
   services: {
     title: 'Ce que je peux prendre',
     subtitle:
-      'Des systèmes qui tournent, pas un deck. Missions backend / platform, pas un build produit de A à Z.',
+      'Un flux à concevoir, ou déjà en service. Pas un produit construit de A à Z, pas un parc informatique.',
     items: [
       {
         icon: '⌘',
-        title: 'Backend Go',
+        title: 'Études',
         description:
-          'APIs, microservices, durcissement prod : perf, fiabilité, dette, tests. Go au quotidien, Linux, Postgres.',
-        tags: ['Go', 'PostgreSQL', 'HTTP', 'gRPC'],
+          'Modèle des événements, des données et du découpage. Le flux avant le code.',
+        tags: ['Flux', 'Données', 'Contrats'],
       },
       {
         icon: '☁',
-        title: 'Kubernetes & cloud',
+        title: 'Développement',
         description:
-          'EKS / GKE, CI/CD, Helm, Terraform, maîtrise des coûts. Ce que j’ai fait sur de l’infra nœuds et de l’IoT à volume.',
-        tags: ['Kubernetes', 'AWS', 'GCP', 'Terraform'],
+          'Services Go sur Linux : API, concurrence, Kafka, Pub/Sub, PostgreSQL.',
+        tags: ['Go', 'Kafka', 'PostgreSQL', 'Linux'],
       },
       {
         icon: '◉',
-        title: 'Observabilité',
+        title: 'Tests et mise en production',
         description:
-          'Traces, metrics, logs — OpenTelemetry, Datadog, Prometheus/Grafana. Migration d’APM, pas un dashboard cosmétique.',
-        tags: ['OpenTelemetry', 'Datadog', 'Prometheus'],
+          'Charge avec k6, déploiement, Kubernetes (EKS, GKE) quand le flux y tourne.',
+        tags: ['k6', 'Kubernetes', 'EKS', 'GKE'],
       },
       {
         icon: '◈',
-        title: 'Self-hosted & RAG',
+        title: 'Supervision et documentation',
         description:
-          'Si le besoin est là : retrieval privé, stockage embarqué, pas d’envoi du corpus chez un LLM US. Optionnel, pas le pitch par défaut.',
-        tags: ['RAG', 'RGPD', 'Rust/Go'],
+          'OpenTelemetry, Prometheus, Grafana, Datadog. L’équipe en place reprend le système.',
+        tags: ['OpenTelemetry', 'Prometheus', 'Datadog'],
       },
     ] satisfies Service[],
   },
@@ -163,28 +163,28 @@ export const content = {
     subtitle: 'Missions, pas des slides.',
     items: [
       {
-        name: 'ConsenSys Infura',
-        role: 'Infrastructure nœuds Ethereum',
-        body: 'AWS EKS, Karpenter, ArgoCD, Helm, Terraform — fiabilité, perf, réduction de facture cloud.',
-        tags: ['Go', 'EKS', 'Terraform'],
-      },
-      {
         name: 'Objenious',
         role: 'Bouygues Telecom · IoT LoRaWAN',
-        body: 'Microservices Go sur GCP GKE, haut volume : Cassandra, Pub/Sub, Kafka.',
-        tags: ['Go', 'GKE', 'Kafka'],
+        body: 'Pipeline conçu en Go. Latence carte de plus de 5 s à environ 150 ms. Kafka, Pub/Sub, Cassandra, GCP GKE.',
+        tags: ['Go', 'Kafka', 'GKE'],
+      },
+      {
+        name: 'ConsenSys Infura',
+        role: 'Infrastructure nœuds Ethereum',
+        body: 'Tests de charge k6 et mise en production des flottes de nœuds sur AWS EKS. Dimensionnement, Karpenter, instances spot.',
+        tags: ['k6', 'EKS', 'Go'],
       },
       {
         name: 'LivingPackets',
-        role: 'Freelance backend · 2025',
-        body: 'Stabilisation services Go, migration tracing Instana → OpenTelemetry / Datadog.',
+        role: 'Freelance · 2025',
+        body: 'Services Go corrigés en production. Backend documenté. Tracing repris d’Instana vers OpenTelemetry et Datadog.',
         tags: ['Go', 'OTel', 'Datadog'],
       },
       {
         name: 'Alluvial Finance',
-        role: 'Freelance backend · 2025',
-        body: 'Staking / cache RPC Ethereum — chemin chaud, pas un POC.',
-        tags: ['Go', 'RPC', 'cache'],
+        role: 'Freelance · 2025',
+        body: 'MVP du SMS v2 conçu (Go, PostgreSQL), non mis en production. Proxy-cache mesuré hors production : 50 % à 90 % de hits.',
+        tags: ['Go', 'PostgreSQL', 'cache'],
       },
     ] satisfies ProofItem[],
   },
@@ -223,6 +223,13 @@ export const content = {
     rights: 'Tous droits réservés.',
     legal: 'Mentions légales',
     legalHref: '/legal/',
+    themeSystem: 'Système',
+    themeLight: 'Clair',
+    themeDark: 'Sombre',
+    themePrefix: 'Thème :',
+    themeNextSystem: 'Revenir au réglage du système.',
+    themeNextLight: 'Passer en clair.',
+    themeNextDark: 'Passer en sombre.',
   },
   notFound: {
     title: 'Page introuvable — Noematic',

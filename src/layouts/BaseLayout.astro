@@ -3,8 +3,10 @@ import '@fontsource-variable/dm-sans';
 import '@fontsource-variable/dm-sans/wght-italic.css';
 import '../styles/global.css';
 import Footer from '../components/Footer.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
 import WatchNo from '../components/WatchNo.astro';
 import { content } from '../content';
+import themeBoot from '../scripts/theme-boot.js?raw';
 import { alternateUrl, canonicalPath, LANG_SWITCH } from '../i18n';
 import { ANALYTICS_ENDPOINT, LOCALE, OG_IMAGE, SITE_NAME, SITE_URL } from '../site';
 
@@ -39,6 +41,9 @@ const jsonLdRaw = jsonLd ? JSON.stringify(jsonLd) : null;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0a0e12" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f4f7f8" media="(prefers-color-scheme: light)" />
+    <script is:inline set:html={themeBoot}></script>
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     <title>{title}</title>
@@ -71,6 +76,7 @@ const jsonLdRaw = jsonLd ? JSON.stringify(jsonLd) : null;
     <WatchNo />
   </head>
   <body>
+    <ThemeToggle />
     <main>
       <slot />
     </main>

@@ -1,12 +1,6 @@
 ---
 import { LOGO_ALT, LOGO as L } from '../site';
 
-interface Props {
-  variant?: 'dark' | 'light';
-}
-
-const { variant = 'dark' } = Astro.props;
-const textFill = variant === 'dark' ? '#ffffff' : '#0d0d0d';
 const { cx, cy, r } = L;
 const glowCx = cx + r * 0.14;
 const glowCy = cy - r * 0.1;
@@ -128,17 +122,17 @@ const PATH_N_LIGHT = `M32.601,31.544c12.66-1.738,24.328-2.641,29.611,6.951c5.283
         cy={cy}
         r={r}
         fill="none"
-        stroke="#ffffff"
+        stroke="currentColor"
         stroke-opacity="0.16"
         stroke-width="0.65"
       />
     </g>
 
-    <g class="noe-logo-o" fill={textFill}>
+    <g class="noe-logo-o" fill="currentColor">
       <path d={PATH_O_BODY} />
     </g>
 
-    <g class="noe-logo-ematic" fill={textFill}>
+    <g class="noe-logo-ematic" fill="currentColor">
       <path d="M173.047,77.59c0.135,5.654,1.455,10.156,3.961,13.508c2.877,3.826,7.024,5.738,12.441,5.738
         c4.333,0,8.396-1.185,12.188-3.555c0.135-0.135,0.254-0.169,0.355-0.102c0.067,0.102,0.152,0.203,0.254,0.305l1.473,2.539
         c0.067,0.305-0.034,0.542-0.305,0.711c-5.925,3.961-11.917,5.941-17.977,5.941c-6.771,0-12.104-2.099-15.996-6.297
