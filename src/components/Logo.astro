@@ -2,6 +2,17 @@
 import { LOGO_ALT, LOGO as L } from '../site';
 
 const { cx, cy, r } = L;
+const markScale = 5.05;
+const discR = 352 / markScale;
+const ringR = 368 / markScale;
+const ringW = 28 / markScale;
+const shineCx = cx + (300 - 400) / markScale;
+const shineCy = cy + (250 - 400) / markScale;
+const shineRx = 210 / markScale;
+const shineRy = 150 / markScale;
+// LinkedIn disc + ring are larger than the wordmark slot. Fit the outer stroke edge to r.
+const markFit = r / (ringR + ringW / 2);
+const markTransform = `translate(${cx} ${cy}) scale(${markFit}) translate(${-cx} ${-cy})`;
 const glowCx = cx + r * 0.14;
 const glowCy = cy - r * 0.1;
 const glowFx = glowCx - r * 0.08;
@@ -11,11 +22,6 @@ const glowFxAnim = `${glowFx};${glowFx + glowDrift};${glowFx - glowDrift * 0.55}
 const glowFyAnim = `${glowFy};${glowFy - glowDrift * 0.7};${glowFy + glowDrift};${glowFy - glowDrift * 0.3};${glowFy}`;
 const glowCxAnim = `${glowCx};${glowCx + glowDrift * 0.45};${glowCx - glowDrift * 0.35};${glowCx + glowDrift * 0.2};${glowCx}`;
 const glowCyAnim = `${glowCy};${glowCy - glowDrift * 0.4};${glowCy + glowDrift * 0.5};${glowCy - glowDrift * 0.15};${glowCy}`;
-const glassFx = cx - r * 0.22;
-const glassFy = cy - r * 0.28;
-const glassDrift = r * 0.14;
-const glassFxAnim = `${glassFx};${glassFx + glassDrift};${glassFx - glassDrift * 0.45};${glassFx + glassDrift * 0.25};${glassFx}`;
-const glassFyAnim = `${glassFy};${glassFy - glassDrift * 0.75};${glassFy + glassDrift * 0.55};${glassFy - glassDrift * 0.2};${glassFy}`;
 
 const PATH_O_BODY = `M134.25,54.586c7.313,0,12.966,2.133,16.961,6.398c3.893,4.164,5.84,9.937,5.84,17.316
   c0,7.076-2.1,12.882-6.297,17.418c-4.334,4.639-10.004,6.957-17.012,6.957c-7.245,0-12.882-2.166-16.91-6.5
@@ -54,41 +60,35 @@ const PATH_N_LIGHT = `M32.601,31.544c12.66-1.738,24.328-2.641,29.611,6.951c5.283
         fx={glowFx}
         fy={glowFy}
       >
-        <stop offset="0%" stop-color="#d8ecf8" stop-opacity="0.55" />
-        <stop offset="50%" stop-color="#90b8d4" stop-opacity="0.18" />
-        <stop offset="100%" stop-color="#90b8d4" stop-opacity="0" />
+        <stop offset="0%" stop-color="#5ee6d8" stop-opacity="0.55" />
+        <stop offset="50%" stop-color="#1aa394" stop-opacity="0.18" />
+        <stop offset="100%" stop-color="#0f6f66" stop-opacity="0" />
         <animate class="noe-logo-anim" attributeName="fx" values={glowFxAnim} dur="14s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1" keyTimes="0;0.33;0.66;1" />
         <animate class="noe-logo-anim" attributeName="fy" values={glowFyAnim} dur="14s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1" keyTimes="0;0.33;0.66;1" />
         <animate class="noe-logo-anim" attributeName="cx" values={glowCxAnim} dur="18s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1;0.45 0 0.55 1;0.45 0 0.55 1" keyTimes="0;0.33;0.66;1" />
         <animate class="noe-logo-anim" attributeName="cy" values={glowCyAnim} dur="18s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1;0.45 0 0.55 1;0.45 0 0.55 1" keyTimes="0;0.33;0.66;1" />
       </radialGradient>
-      <radialGradient
-        id="noe-logo-glass"
-        gradientUnits="userSpaceOnUse"
-        cx={cx}
-        cy={cy}
-        r={r}
-        fx={glassFx}
-        fy={glassFy}
-      >
-        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.58" />
-        <stop offset="32%" stop-color="#e8f2fa" stop-opacity="0.36" />
-        <stop offset="68%" stop-color="#a8b8c8" stop-opacity="0.18" />
-        <stop offset="100%" stop-color="#485560" stop-opacity="0.1" />
-        <animate class="noe-logo-anim" attributeName="fx" values={glassFxAnim} dur="11s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1" keyTimes="0;0.33;0.66;1" />
-        <animate class="noe-logo-anim" attributeName="fy" values={glassFyAnim} dur="11s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1" keyTimes="0;0.33;0.66;1" />
+      <radialGradient id="noe-logo-glass" cx="32%" cy="26%" r="48%">
+        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85" />
+        <stop offset="42%" stop-color="#ffffff" stop-opacity="0.15" />
+        <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
       </radialGradient>
-      <linearGradient id="noe-logo-n-dark" x1="35%" y1="25%" x2="70%" y2="88%">
-        <stop offset="0%" stop-color="#383838" />
-        <stop offset="100%" stop-color="#262626" />
+      <radialGradient id="noe-logo-disc" cx="36%" cy="30%" r="72%">
+        <stop offset="0%" stop-color="#f7fafb" />
+        <stop offset="58%" stop-color="#e6ecee" />
+        <stop offset="100%" stop-color="#d5dee2" />
+      </radialGradient>
+      <linearGradient id="noe-logo-n-dark" x1="30%" y1="15%" x2="75%" y2="90%">
+        <stop offset="0%" stop-color="#243038" />
+        <stop offset="100%" stop-color="#12181c" />
       </linearGradient>
-      <linearGradient id="noe-logo-n-light" x1="20%" y1="10%" x2="75%" y2="90%">
-        <stop offset="0%" stop-color="#d8d8d8" />
-        <stop offset="45%" stop-color="#a8a8a8" />
-        <stop offset="100%" stop-color="#8c8c8c" />
+      <linearGradient id="noe-logo-n-light" x1="18%" y1="8%" x2="82%" y2="92%">
+        <stop offset="0%" stop-color="#5ee6d8" />
+        <stop offset="48%" stop-color="#1aa394" />
+        <stop offset="100%" stop-color="#0f6f66" />
       </linearGradient>
       <clipPath id="noe-logo-sphere-clip">
-        <circle cx={cx} cy={cy} r={r} />
+        <circle cx={cx} cy={cy} r={discR} />
       </clipPath>
     </defs>
 
@@ -109,23 +109,25 @@ const PATH_N_LIGHT = `M32.601,31.544c12.66-1.738,24.328-2.641,29.611,6.951c5.283
         fill="url(#noe-logo-glow-grad)"
         style={`transform-origin: ${cx}px ${cy}px`}
       />
-      <g clip-path="url(#noe-logo-sphere-clip)">
-        <circle cx={cx} cy={cy} r={r} fill="url(#noe-logo-glass)" />
+      <g class="noe-logo-mark" transform={markTransform}>
+        <g clip-path="url(#noe-logo-sphere-clip)">
+          <circle cx={cx} cy={cy} r={discR} fill="url(#noe-logo-disc)" />
+          <ellipse cx={shineCx} cy={shineCy} rx={shineRx} ry={shineRy} fill="url(#noe-logo-glass)" />
+        </g>
+        <g class="noe-logo-n">
+          <path fill="url(#noe-logo-n-dark)" d={PATH_N_DARK} />
+          <path fill="url(#noe-logo-n-light)" d={PATH_N_LIGHT} />
+        </g>
+        <circle
+          class="noe-logo-rim"
+          cx={cx}
+          cy={cy}
+          r={ringR}
+          fill="none"
+          stroke="#1aa394"
+          stroke-width={ringW}
+        />
       </g>
-      <g class="noe-logo-n">
-        <path fill="url(#noe-logo-n-dark)" d={PATH_N_DARK} />
-        <path fill="url(#noe-logo-n-light)" d={PATH_N_LIGHT} />
-      </g>
-      <circle
-        class="noe-logo-rim"
-        cx={cx}
-        cy={cy}
-        r={r}
-        fill="none"
-        stroke="currentColor"
-        stroke-opacity="0.16"
-        stroke-width="0.65"
-      />
     </g>
 
     <g class="noe-logo-o" fill="currentColor">
